@@ -1,5 +1,5 @@
-import { newUser } from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
+import { createUser } from '../Controller/loginSignup-controller.js';
 
 export function register() {
 // Container for main and footer
@@ -29,14 +29,7 @@ export function register() {
   // Register Form
   const registerForm = document.createElement('form');
   registerForm.setAttribute('class', 'form-register');
-  // Username
-  const labelUsername = document.createElement('label');
-  labelUsername.setAttribute('for', 'username');
-  labelUsername.textContent = 'Username';
-  const inputUsername = document.createElement('input');
-  inputUsername.setAttribute('type', 'text');
-  inputUsername.setAttribute('id', 'username');
-  inputUsername.setAttribute('required', 'required');
+
   // Mail
   const labelMail = document.createElement('label');
   labelMail.setAttribute('for', 'user-mail');
@@ -54,7 +47,7 @@ export function register() {
   inputPass.setAttribute('type', 'password');
   inputPass.setAttribute('id', 'user-pass');
   inputPass.setAttribute('required', 'required');
-  
+
   // aler msg
   const alertMsg = document.createElement('p');
   alertMsg.textContent = 'Password must have 6 characters length';
@@ -71,7 +64,7 @@ export function register() {
   const footerText = document.createElement('p');
   footerText.setAttribute('class', 'footer-text');
   footerText.textContent = 'Already have an account?';
-  
+
   const loginText = document.createElement('p');
   loginText.setAttribute('class', 'login-text');
   loginText.textContent = 'Login';
@@ -80,7 +73,7 @@ export function register() {
   registerFooter.append(footerText, loginText);
   // Insert form elements
   // eslint-disable-next-line max-len
-  registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
+  registerForm.append(labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
   formContainer.append(registerForm);
   // Insert form to form container
   // Insert everything to main
@@ -88,39 +81,21 @@ export function register() {
   // Inser to div father of all
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
-  loginText.addEventListener('click',() => {
+
+  loginText.addEventListener('click', () => {
     onNavigate('/login');
-  })
+  });
   // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    /* const inputName = document.querySelector('#username').value; 
-    document.querySelector('#username').required = true;*/
- 
-    const inputmailValue = document.querySelector('#user-mail').value;
-    const inputpasswordValue = document.querySelector('#user-pass').value;
-    console.log(inputmailValue, inputpasswordValue);
 
-    newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ..
-      console.log(user);
-      // Email verification sent!
-      // ...
-      console.log('si funciona');
-      onNavigate('/home');
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('nel');
-        // ..
-        if(inputpasswordValue >= 1 ){
-          alertMsg.style = 'display: block';
-        }
-        
-      });
+    // const inputmailValue = document.querySelector('#user-mail').value;
+    // const inputpasswordValue = document.querySelector('#user-pass').value;
+    if (inputMail.value.length < 6) {
+      alertMsg.style = 'display: block';
+    } else {
+      createUser(inputMail.value, inputPass.value);
+    }
   });
   // Return all
   return fatherOfAll;

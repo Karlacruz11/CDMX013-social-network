@@ -3,9 +3,11 @@
 /* eslint-disable no-unused-vars */
 
 import {
-  providerGoogle, resultRedirect, credential, singIn, loginUser, providerGithub, signInWithGithub,
+  singIn, signInWithGithub,
 }
   from '../lib/Auth.js';
+import { onNavigate } from '../main.js';
+import { redirectGoogle, signInWithEmail, redirectGithub } from '../Controller/loginSignup-controller.js';
 
 export function login() {
   // Container for main and footer
@@ -53,8 +55,7 @@ export function login() {
   inputPassword.setAttribute('id', 'password');
   inputPassword.setAttribute('required', 'required');
   // aler msg
-  const alertMsg = document.createElement('p');
-  alertMsg.textContent = 'Password must have 6 characters length';
+  const alertMsg = document.createElement('div');
   alertMsg.setAttribute('id', 'alert-msg');
   // Login btn
   const btnLogin = document.createElement('button');
@@ -81,10 +82,23 @@ export function login() {
   const logoGithub = document.createElement('img');
   logoGithub.setAttribute('class', 'login-Github');
   logoGithub.src = '../img/gitHub-logo.png';
-
+ 
+  const createAccount = document.createElement('div');
+  createAccount.setAttribute('class', 'register-login');
+  const footerQuestion = document.createElement('div');
+  footerQuestion.setAttribute('class', 'footer-text');
+  footerQuestion.textContent = 'Don´t have an account?';
+  
+  const registerText = document.createElement('div');
+  registerText.setAttribute('class', 'register-text');
+  registerText.textContent = 'Sign up';
+  registerText.addEventListener('click', () => {
+    onNavigate('/register');
+  });
+  createAccount.append(footerQuestion, registerText);
   logosContainer.append(logoGoogle, logoGithub);
   // Insert footer text
-  loginFooter.append(footerText, logosContainer);
+  loginFooter.append(footerText, logosContainer, createAccount);
   // Insert form elements
   // eslint-disable-next-line max-len
   loginForm.append(labelMail, inputMail, labelPassword, inputPassword, alertMsg, btnLogin);
@@ -93,59 +107,34 @@ export function login() {
   mainContainer.append(loginDiv, formContainer);
   // Inser to div father of all
   fatherOfAll.append(mainContainer, loginFooter);
-
+  
   // Login email and password
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const inputmailValue = document.querySelector('#mail').value;
     const inputpasswordValue = document.querySelector('#password').value;
-
-    loginUser(inputmailValue, inputpasswordValue).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('valiendo qso');
-      });
+    signInWithEmail(inputmailValue, inputpasswordValue);
   });
 
   // LOGIN WITH GOOGLE
   logoGoogle.addEventListener('click', () => {
-    providerGoogle;
-    singIn(providerGoogle);
-    resultRedirect().then((result) => {
-      const credentialGoogle = credential(result);
-      const token = credentialGoogle.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      console.log(user);
-      console.log('si funciona');
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('valiendo qso');
-      });
+    singIn();
+    redirectGoogle();
   });
   // LOGIN WITH GITHUB
   logoGithub.addEventListener('click', () => {
-    providerGithub;
-    singIn(providerGithub);
-    resultRedirect().then((result) => {
-      const credentialGithub = credential(result);
-      const token = credentialGithub.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('valiendo qso');
-      });
+    signInWithGithub();
+    redirectGithub();
+  });
+
+  inputMail.addEventListener('click', (e) => {
+    e.preventDefault();
+    alertMsg.style = 'display: none';
+  });
+
+  inputPassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    alertMsg.style = 'display: none';
   });
 
   return fatherOfAll;

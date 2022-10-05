@@ -28,6 +28,10 @@
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
     "import/no-cycle": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off", 
+     "no-unused-vars": "off",
+     "no-multiple-empty-lines": "off",
+     " no-trailing-spaces": "off"
+
   }
 }
