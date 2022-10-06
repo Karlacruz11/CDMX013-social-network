@@ -40,7 +40,7 @@ En este proyecto la técnica utilizada para simular objetos fue mocking, para la
 
 ### JavaScript
 
-* [✔️] **Arrays (uso de métodos como: filter, sort,includes, forEach)**
+* [✔️] **Arrays **
 
 * [✔️] **Objetos (key, value)**
 
@@ -54,7 +54,7 @@ En este proyecto la técnica utilizada para simular objetos fue mocking, para la
 
 * [✔️] **Funciones (params, args, return)**
 
-* [✔️] **Pruebas unitarias (Jest: describe, expect, toBe,toEqual)**
+* [✔️] **Pruebas unitarias (Jest: describe, expect, toBe)**
 
 * [✔️] **Pruebas asícronas**
 
