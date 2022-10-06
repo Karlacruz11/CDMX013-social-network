@@ -1,13 +1,14 @@
 
 ![GYM PARTERS LOGO](https://user-images.githubusercontent.com/64505620/194427186-88940883-3701-4a7b-809d-c9ecc01fae6d.png)
 
-## RESUMEN DEL PROYECTO
+## Resumen del proyecto 👩‍💻
 El proyecto consiste en crear una SPA mobile first efocada a usuarias que quieran compartir tips, información o hacer preguntas sobre vida saludable y ejercicio
 con otras usuarias.
 Las usuarias pueden registrarse con correo electronico y contraseña o bien inciar sesión con Google o GitHub. También se pueden realizar publicaciones y a estas mismas
 editarlas, eliminarlas y darles like.
 
-## HISTORIAS DE USUARIO Y PROTOTIPOS
+## Historias de Usuario y Prototipos ✍🏼
+Link de prototipo en figma: https://www.figma.com/file/I78mW1V6LIhPVUdTbmaPIY/GymPartner?node-id=0%3A1
 #### HU1-Yo como usuaria de (GYM PARTNERS), quiero ver dos botones, para navegar al registro o inicio de sesión.
 ![HU1](https://user-images.githubusercontent.com/64505620/194429397-04608b25-bd35-4485-96d1-cdcb0c4d55ec.png)
 #### HU2-Yo como usuaria de (GYM PARTNERS), quiero poder registrarme con mi correo, para hacer uso de la red social
@@ -20,13 +21,16 @@ editarlas, eliminarlas y darles like.
 #### HU-7 Yo como usuaria de (GYM Partners), quiero poder quitar mi like, para cuando le di like a una publicación sin querer 
 #### HU-8 Yo como usuaria de (GYM PARTNERS), quiero poder eliminar un post
 #### HU-9 Yo como usuaria de (GYM PARTNERS), quiero ver un mensaje de confirmación al borrar un post
+![HU9](https://user-images.githubusercontent.com/64505620/194432818-f2633871-cb32-4546-9e46-5e0d9cb7e4ee.png)
 #### HU-10 Yo como usuaria de (GYM Partners), quiero poder editar mi publicación, para agregar o quitar contenido del post
+![HU10](https://user-images.githubusercontent.com/64505620/194433041-5388b9e9-22ad-4d4e-87f7-9a136fe3511f.png)
+
 ![Prototipo final](https://user-images.githubusercontent.com/64505620/194431604-ef722d85-beef-42f1-a75d-befaa20bc575.png)
 
-## TRABAJO COLABORATIVO
+## Trabajo Colaborativo 🤝🏼
 Para la elaboración de este proyecto, primeramente acordamos horarios de trabajo colaborativo e investigación de forma individual. Para ello utilizamos la herramienta [Trello GYM Partners](https://trello.com/b/fYiRWxfA/project-3-red-social), en la cual organizamos una lista de tareas a realizar día con día, a lo largo de cada sprint, según las Historias de Usuario diseñadas para alcanzar los objetivos de este proyecto.
 En el tablero de Trello se organizo en columnas; project backlog, sprint backlog, doing, done, help (bloqueos que se presentaron durante el proyecto) y links de apoyo.
-## PRUEBAS UNITARIAS
+## Pruebas unitarias 🔎
 En este proyecto la técnica utilizada para simular objetos fue mocking, para las funciones que utilizan servicios de Firebase, con la finalidad de poder ejecutar pruebas unitarias.
 ## OAS
 
