@@ -25,6 +25,7 @@ Link de prototipo en figma: https://www.figma.com/file/I78mW1V6LIhPVUdTbmaPIY/Gy
 #### HU-10 Yo como usuaria de (GYM Partners), quiero poder editar mi publicación, para agregar o quitar contenido del post
 ![HU10](https://user-images.githubusercontent.com/64505620/194433041-5388b9e9-22ad-4d4e-87f7-9a136fe3511f.png)
 
+### Prototipo Final del Feed
 ![Prototipo final](https://user-images.githubusercontent.com/64505620/194431604-ef722d85-beef-42f1-a75d-befaa20bc575.png)
 
 ## Trabajo Colaborativo 🤝🏼
