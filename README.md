@@ -103,7 +103,7 @@ En este proyecto la técnica utilizada para simular objetos fue mocking, para la
 
 * [❌] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
 
-###Firebase
+### Firebase
 
 * [✔️] **Firebase Auth**
 * [✔️] **Firestore**
